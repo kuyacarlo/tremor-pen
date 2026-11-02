@@ -1,0 +1,58 @@
+{
+ "idle": {
+  "name": "Idle",
+  "rows": 3212,
+  "dur": 30.0,
+  "flagged": 0.0,
+  "energy": 0.0,
+  "ratio_med": 2.62,
+  "rms_med": 0.4,
+  "peak": 0.6
+ },
+ "normal_writing": {
+  "name": "Normal writing",
+  "rows": 3124,
+  "dur": 30.0,
+  "flagged": 2.5,
+  "energy": 39.6,
+  "ratio_med": 0.49,
+  "rms_med": 154.2,
+  "peak": 2.0
+ },
+ "drawing": {
+  "name": "Drawing",
+  "rows": 3125,
+  "dur": 30.0,
+  "flagged": 0.0,
+  "energy": 20.2,
+  "ratio_med": 0.78,
+  "rms_med": 116.8,
+  "peak": 3.5
+ },
+ "fake_tremor": {
+  "name": "Simulated tremor",
+  "rows": 3190,
+  "dur": 30.0,
+  "flagged": 100.0,
+  "energy": 89.7,
+  "ratio_med": 4.69,
+  "rms_med": 254.7,
+  "peak": 7.1
+ },
+ "fake_tremor_writing": {
+  "name": "Simulated tremor + writing",
+  "rows": 3126,
+  "dur": 30.0,
+  "flagged": 82.0,
+  "energy": 39.7,
+  "ratio_med": 3.12,
+  "rms_med": 141.6,
+  "peak": 7.1
+ },
+ "idle_mag_g": 0.9782,
+ "idle_std_mg": [
+  0.79,
+  0.63,
+  3.74
+ ]
+}
