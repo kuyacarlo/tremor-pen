@@ -3,7 +3,7 @@
 // -> tremor/stroke power ratio with hysteresis -> DRV8833 PWM -> coin motor
 //
 // Board: "NodeMCU 1.0 (ESP-12E Module)", ESP8266 Arduino core 3.x, 115200 baud.
-// Wiring: LSM6DS3 SDA -> D6, SCL -> D7, SDO -> GND (addr 0x6A), CS -> 3V3
+// Wiring: LSM6DS3 SDA -> D7, SCL -> D6, SDO -> GND (addr 0x6A), CS -> 3V3
 //         DRV8833 AIN1 -> D5, AIN2 -> GND, nSLEEP -> 3V3, VM -> 5V (USB) or battery
 //
 // Serial commands (type in the Serial Monitor, "No line ending" or "Newline"):
@@ -15,8 +15,8 @@
 #include <ESP8266WiFi.h>
 
 // ---------- pins ----------
-const int PIN_SDA   = D6;
-const int PIN_SCL   = D7;
+const int PIN_SDA   = D7;
+const int PIN_SCL   = D6;
 const int PIN_MOTOR = D5;
 
 // ---------- settings (same as the report) ----------
@@ -131,6 +131,7 @@ void handleSerial() {
 void setup() {
   WiFi.mode(WIFI_OFF);                   // radio off: less heat, less noise
   WiFi.forceSleepBegin();
+  wifi_set_sleep_type(LIGHT_SLEEP_T);    // let delay() below actually drop power between samples
   Serial.begin(115200);
   delay(300);
   Wire.begin(PIN_SDA, PIN_SCL);
@@ -147,7 +148,7 @@ void setup() {
 
 void loop() {
   handleSerial();
-  if ((long)(micros() - nextT) < 0) return;
+  if ((long)(micros() - nextT) < 0) { delay(1); return; }   // light-sleep the idle gap instead of busy-spinning
   nextT += PERIOD_US;
 
   int16_t a[3], g[3];
