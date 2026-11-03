@@ -3,7 +3,7 @@
 // -> tremor/stroke power ratio with hysteresis -> DRV8833 PWM -> coin motor
 //
 // Board: "NodeMCU 1.0 (ESP-12E Module)", ESP8266 Arduino core 3.x, 115200 baud.
-// Wiring: LSM6DS3 SDA -> D2, SCL -> D1, SDO -> GND (addr 0x6A), CS -> 3V3
+// Wiring: LSM6DS3 SDA -> D6, SCL -> D7, SDO -> GND (addr 0x6A), CS -> 3V3
 //         DRV8833 AIN1 -> D5, AIN2 -> GND, nSLEEP -> 3V3, VM -> 5V (USB) or battery
 //
 // Serial commands (type in the Serial Monitor, "No line ending" or "Newline"):
@@ -15,8 +15,8 @@
 #include <ESP8266WiFi.h>
 
 // ---------- pins ----------
-const int PIN_SDA   = D2;
-const int PIN_SCL   = D1;
+const int PIN_SDA   = D6;
+const int PIN_SCL   = D7;
 const int PIN_MOTOR = D5;
 
 // ---------- settings (same as the report) ----------
