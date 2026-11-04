@@ -1,10 +1,10 @@
 // Tremor Cue Pen - NodeMCU (ESP8266) test firmware
 // LSM6DS3 accel (I2C) -> stroke band 0.5-3 Hz + tremor band 4-12 Hz
-// -> tremor/stroke power ratio with hysteresis -> DRV8833 PWM -> coin motor
+// -> tremor/stroke power ratio with hysteresis -> vibration module PWM -> coin motor
 //
 // Board: "NodeMCU 1.0 (ESP-12E Module)", ESP8266 Arduino core 3.x, 115200 baud.
 // Wiring: LSM6DS3 SDA -> D7, SCL -> D6, SDO -> GND (addr 0x6A), CS -> 3V3
-//         DRV8833 AIN1 -> D5, AIN2 -> GND, nSLEEP -> 3V3, VM -> 5V (USB) or battery
+//         Vibration module IN -> D5, VCC -> 5V (USB) or battery, GND -> GND (no motor driver IC)
 //
 // Serial commands (type in the Serial Monitor, "No line ending" or "Newline"):
 //   r  toggle raw logging (for record.py)       a  automatic motor (default)
